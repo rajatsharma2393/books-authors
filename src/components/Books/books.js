@@ -30,7 +30,7 @@ class Books extends React.Component {
         ) : (
           <>
             <h1>Books</h1>
-            <Link to="/book/0" className="btn btn-primary">
+            <Link to="/book/0" className="btn">
               Add book
             </Link>
             <br />
