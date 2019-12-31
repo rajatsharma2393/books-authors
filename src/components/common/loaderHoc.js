@@ -17,7 +17,7 @@ export default ChildComponent => {
 
     render() {
       if (this.props.books.length === 0 || this.props.authors.length === 0) {
-        return <div>Loading</div>;
+        return <div>Loading..</div>;
       }
 
       return <ChildComponent />;
