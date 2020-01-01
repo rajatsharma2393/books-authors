@@ -3,24 +3,27 @@ import { Suspense, lazy } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import "./App.css";
-import Books from "./components/Books/books";
+//import Books from "./components/Books/books";
 import Home from "./components/Home/home";
-import Authors from "./components/Author/authors";
+//import Authors from "./components/Author/authors";
 import Header from "./components/common/header";
 import ManageBook from "./components/Books/manageBook";
 import manageAuthor from "./components/Author/manageAuthor";
-//const Books = lazy(() => import("./components/Books/books"));
+const Books = lazy(() => import("./components/Books/books"));
+const Authors = lazy(() => import("./components/Author/authors"));
 
 function App() {
   return (
     <div>
       <Header />
       <Switch>
-        <Route exact path="/books" component={Books} />
-        <Route path="/book/:id" component={ManageBook} />
-        <Route path="/author/:id" component={manageAuthor} />
-        <Route exact path="/authors" component={Authors} />
         <Route exact path="/" component={Home} />
+        <Suspense fallback={<h1>Still Loading…</h1>}>
+          <Route path="/author/:id" component={manageAuthor} />
+          <Route exact path="/authors" component={Authors} />
+          <Route exact path="/books" component={Books} />
+          <Route path="/book/:id" component={ManageBook} />
+        </Suspense>
       </Switch>
     </div>
   );
