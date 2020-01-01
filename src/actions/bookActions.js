@@ -21,23 +21,27 @@ function getBooksFromApi() {
     {
       id: 1,
       name: "First Book",
-      authorId: 2
+      authorId: 2,
+      rating: 3.5
     },
     {
       id: 2,
       name: "Second Book",
-      authorId: 1
+      authorId: 1,
+      rating: 2.5
     },
     {
       id: 3,
       name: "Third Book",
-      authorId: 3
+      authorId: 3,
+      rating: 4.5
     }
   ];
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(books);
-    }, 1000);
+    // setTimeout(() => {
+    //   resolve(books);
+    // }, 1000);
+    resolve(books);
   });
 }
 

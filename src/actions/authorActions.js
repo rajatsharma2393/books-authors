@@ -21,19 +21,23 @@ export function loadAuthors() {
     {
       id: 1,
       name: "First Author",
-      bookIds: []
+      bookIds: [],
+      rating: 3.5
     },
     {
       id: 2,
       name: "Second Author",
-      bookIds: []
+      bookIds: [],
+      rating: 2.5
     },
     {
       id: 3,
       name: "Third Author",
-      bookIds: []
+      bookIds: [],
+      rating: 4.5
     }
   ];
+
   return function(dispatch) {
     dispatch(getAuthors(authors));
   };
