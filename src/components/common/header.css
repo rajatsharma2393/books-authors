@@ -10,7 +10,6 @@ header {
 }
 
 .header-image img {
-  width: 30%;
   height: 80%;
   display: block;
   margin: auto;
@@ -24,10 +23,9 @@ header {
 }
 
 .header-navs a {
-  display: flex;
   text-decoration: none;
   background-color: rgb(176, 124, 211);
-  text-align: center;
+  display: flex;
   justify-content: center;
   align-items: center;
 }

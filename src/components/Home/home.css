@@ -1,0 +1,72 @@
+.top-books,
+.top-authors {
+  width: 100vw;
+  height: 40vh;
+  background-color: rgb(207, 154, 154);
+  color: white;
+}
+
+.books,
+.authors {
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  height: 70%;
+}
+
+.books > div,
+.authors > div {
+  margin: 1vh 1vw 1vw 1vh;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: rgb(207, 137, 137);
+}
+
+.books > div > div,
+.authors > div > div {
+  margin-left: 1vw;
+  margin-right: 1vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.top-books .label,
+.top-authors .label {
+  height: 20%;
+  font-size: 1.7rem;
+}
+
+.top-books > div,
+.top-authors > div {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+.star-ratings {
+  width: 50%;
+  height: 20%;
+}
+
+.star-ratings .star-container {
+  margin: 0%;
+  padding: 0% !important;
+  width: 20%;
+  height: 70%;
+}
+.star-ratings .star-container svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.top-books img,
+.top-authors img {
+  width: 15vh;
+  display: block;
+  margin: auto;
+}
+
+a {
+  text-decoration: none;
+}

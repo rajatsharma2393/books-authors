@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 import { loadBooks } from "../../actions/bookActions";
 import { loadAuthors } from "../../actions/authorActions";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import "./home.css";
 import StarRatings from "react-star-ratings";
+import { Link } from "react-router-dom";
 
 class Home extends React.Component {
   componentDidMount() {
@@ -26,8 +27,12 @@ class Home extends React.Component {
 
     let books = topBooks.map(book => (
       <div key={book.id}>
-        <span>{book.name}</span>
-        <br />
+        <div>
+          <Link to={`/book/${book.id}`}>
+            <img src="./logo192.png" />
+            {book.name}
+          </Link>
+        </div>
         <StarRatings
           rating={book.rating}
           starRatedColor="blue"
@@ -39,15 +44,18 @@ class Home extends React.Component {
     ));
     let authors = topAuthors.map(author => (
       <div key={author.id}>
-        <span>{author.name}</span>
-        <br />
+        <div>
+          <Link to={`/author/${author.id}`}>
+            <img src="./logo192.png" />
+            {author.name}
+          </Link>
+        </div>
         <StarRatings
           rating={author.rating}
           starRatedColor="blue"
           numberOfStars={5}
           name="rating"
         />
-        <br />
       </div>
     ));
     return (
@@ -56,13 +64,13 @@ class Home extends React.Component {
           <div>Loading</div>
         ) : (
           <>
-            <div>
-              Top books
-              {books}
+            <div className="top-books">
+              <div className="label">Top Books</div>
+              <div className="books">{books}</div>
             </div>
-            <div>
-              Top authors
-              {authors}
+            <div className="top-authors">
+              <div className="label">Top Authors</div>
+              <div className="authors">{authors}</div>
             </div>
           </>
         )}
