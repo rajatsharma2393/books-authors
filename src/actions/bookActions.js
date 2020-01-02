@@ -1,4 +1,5 @@
 import * as types from "./actionType";
+import { batch } from "react-redux";
 
 export function addBook(book) {
   return { type: types.ADD_BOOK, book };
@@ -49,8 +50,10 @@ export function loadBooks() {
   return function(dispatch) {
     dispatch(switchApiCallStatus());
     return getBooksFromApi().then(books => {
-      dispatch(getBooks(books));
-      dispatch(switchApiCallStatus());
+      batch(() => {
+        dispatch(getBooks(books));
+        dispatch(switchApiCallStatus());
+      });
     });
   };
 }
