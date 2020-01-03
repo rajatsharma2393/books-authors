@@ -1,7 +1,8 @@
 header {
-  background-color: rgb(41, 40, 43);
+  background-color: rgb(31, 7, 7);
   width: 100vw;
   height: 10vh;
+  color: rgb(179, 174, 174);
 }
 
 .header-image {
@@ -28,14 +29,20 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s ease;
 }
 
 .header-navs a:active {
   text-decoration: underline;
-  color: rgb(145, 180, 0);
+  color: rgb(216, 203, 205);
 }
 
 .header-navs a.activeRoute {
-  color: rgb(90, 45, 52);
-  background-color: rgb(77, 74, 80);
+  background-color: rgb(196, 125, 143);
+}
+
+.header-navs a:hover,
+.header-navs a.activeRoute {
+  border-color: red rgb(255, 208, 0) rgb(255, 208, 0);
+  border-top: 8px solid red;
 }
