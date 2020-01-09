@@ -22,19 +22,22 @@ export function loadAuthors() {
       id: 1,
       name: "First Author",
       bookIds: [],
-      rating: 3.5
+      rating: 3.5,
+      age: 25
     },
     {
       id: 2,
       name: "Second Author",
       bookIds: [],
-      rating: 2.5
+      rating: 2.5,
+      age: 30
     },
     {
       id: 3,
       name: "Third Author",
       bookIds: [],
-      rating: 4.5
+      rating: 4.5,
+      age: 20
     }
   ];
 

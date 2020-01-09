@@ -2,6 +2,7 @@ import * as types from "./actionType";
 import { batch } from "react-redux";
 
 export function addBook(book) {
+  console.log(book);
   return { type: types.ADD_BOOK, book };
 }
 
@@ -42,9 +43,6 @@ function getBooksFromApi() {
     }
   ];
   return new Promise((resolve, reject) => {
-    // setTimeout(() => {
-    //   resolve(books);
-    // }, 1000);
     resolve(books);
   });
 }

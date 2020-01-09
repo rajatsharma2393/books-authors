@@ -4,7 +4,14 @@ import * as bookActions from "../../actions/bookActions";
 import * as authorActions from "../../actions/authorActions";
 import PropTypes from "prop-types";
 import { Link, Redirect } from "react-router-dom";
+import StarRatings from "react-star-ratings";
 
+const ratingsStyle = {
+  width: "30%",
+  height: "20%",
+  verticalAlign: "top",
+  backgroundColor: "rgb(163, 223, 245)"
+};
 class Authors extends React.Component {
   componentDidMount() {
     if (!this.props.authors || this.props.authors.length === 0) {
@@ -16,19 +23,58 @@ class Authors extends React.Component {
   }
 
   render() {
-    let authors = this.props.authors.map(author => (
-      <span key={author.id}>
-        <Link to={`/author/${author.id}`}>{author.name}</Link>
-        <button onClick={() => this.props.deleteAuthor(author)}>Delete</button>
-        <br />
-      </span>
-    ));
+    let authors = (
+      <>
+        <table className="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Rating</th>
+              <th />
+            </tr>
+          </thead>
+          <tbody>
+            {this.props.authors.map(author => {
+              return (
+                <tr key={author.id}>
+                  <td>{author.id}</td>
+                  <td>
+                    <Link to={"/author/" + author.id}>{author.name}</Link>
+                  </td>
+                  <td>{author.age}</td>
+                  <td style={ratingsStyle}>
+                    <StarRatings
+                      rating={author.rating}
+                      starRatedColor="darkblue"
+                      numberOfStars={5}
+                      name="rating"
+                    />
+                  </td>
+                  <td>
+                    <button
+                      className="btn btn-outline-danger"
+                      onClick={() => this.props.deleteAuthor(author)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </>
+    );
+
     return (
       <div>
         <h1>Authors</h1>
         <Link to="/author/0" className="btn btn-primary">
           Add Author
         </Link>
+        <br />
         <br />
         {authors}
       </div>

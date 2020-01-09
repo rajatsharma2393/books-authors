@@ -56,7 +56,7 @@ class Books extends React.Component {
                   <td>
                     <button
                       className="btn btn-outline-danger"
-                      onClick={() => console.log(book)}
+                      onClick={() => this.props.deleteBook(book)}
                     >
                       Delete
                     </button>

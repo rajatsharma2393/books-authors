@@ -2,16 +2,29 @@ import React, { Component } from "react";
 import { updateAuthor, addAuthor } from "../../actions/authorActions";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
+import StarRatings from "react-star-ratings";
 
 class ManageAuthor extends Component {
   state = { author: { ...this.props.currentAuthor } };
 
   handleChange = event => {
     let { name, value } = event.target;
+
     this.setState({
       author: {
         ...this.state.author,
         [name]: value
+      }
+    });
+  };
+
+  handleChangeRating = event => {
+    let { name, value } = event.target;
+    value = parseFloat(value);
+    this.setState({
+      author: {
+        ...this.state.author,
+        [name]: +value
       }
     });
   };
@@ -33,39 +46,65 @@ class ManageAuthor extends Component {
   };
 
   render() {
-    let author = this.state.author;
-    let currentAuthorBooks = this.props.books.filter(
-      book => book.authorId === author.id
-    );
-    let books = currentAuthorBooks.map(book => (
-      <li key={book.id}>{book.name}</li>
-    ));
-    return (
-      <>
-        {this.props.books.length === 0 && <Redirect to="/" />}
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="id">Author Id:</label>
+    let currentAuthor = this.state.author;
+
+    let author = (
+      <form onSubmit={this.handleSubmit}>
+        <div className="form-group">
+          <label for="authorName">Name</label>
           <input
             type="text"
-            value={author.id}
-            onChange={this.handleChange}
-            name="id"
-          />
-          <br />
-          <label htmlFor="name">Author Name:</label>
-          <input
-            type="text"
-            value={author.name}
+            className="form-control"
+            id="authorName"
+            value={currentAuthor.name}
+            placeholder="Enter Name"
             onChange={this.handleChange}
             name="name"
           />
-          <br />
-          <ul>{books}</ul>
-          <br />
-          <button onClick={this.handleAddAnotherBook}>Add another Book</button>
-          <br />
-          <button type="submit">{author.id === 0 ? "Add" : "Update"}</button>
-        </form>
+        </div>
+        <div className="form-group">
+          <label for="authorAge">Age</label>
+          <input
+            type="number"
+            className="form-control"
+            id="authorAge"
+            value={currentAuthor.age}
+            placeholder="Enter Age"
+            onChange={this.handleChange}
+            name="age"
+          />
+        </div>
+        <div className="form-group">
+          <label for="authorRating">Rating</label>
+          <input
+            type="number"
+            className="form-control"
+            id="authorRating"
+            value={currentAuthor.rating}
+            placeholder="Enter Rating from 1-5"
+            onChange={this.handleChangeRating}
+            name="rating"
+            step="0.01"
+          />
+        </div>
+        <button type="submit" className="btn btn-primary">
+          {currentAuthor.id === 0 ? "Add" : "Update"}
+        </button>
+      </form>
+    );
+
+    return (
+      <>
+        {author}
+        <br />
+        {currentAuthor.id !== 0 && (
+          <button
+            className="btn btn-secondary"
+            onClick={this.handleAddAnotherBook}
+          >
+            Add Book for this Author
+          </button>
+        )}
       </>
     );
   }
