@@ -1,0 +1,53 @@
+header {
+  background-color: rgb(31, 7, 7);
+  width: 100vw;
+  height: 10vh;
+  color: rgb(179, 174, 174);
+}
+
+.header-image {
+  width: 100%;
+  height: 50%;
+}
+
+.header-image img {
+  height: 80%;
+  display: block;
+  margin: auto;
+}
+
+.header-navs {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  height: 50%;
+  margin: 0;
+}
+
+.header-navs a {
+  text-decoration: none;
+  background-color: rgb(176, 124, 211);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.header-navs a:active {
+  text-decoration: underline;
+  color: rgb(216, 203, 205);
+}
+
+.header-navs a.activeRoute {
+  background-color: rgb(196, 125, 143);
+}
+
+.header-navs a:hover,
+.header-navs a.activeRoute {
+  border-color: red rgb(255, 208, 0) rgb(255, 208, 0);
+  border-top: 8px solid red;
+}
+
+.header-navtop {
+  border-color: red rgb(175, 166, 126) rgb(255, 208, 0);
+  border-top: 8px solid red;
+}
