@@ -33,7 +33,7 @@ class Books extends React.Component {
               <th>Name</th>
               <th>Genre</th>
               <th>Rating</th>
-              <th />
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>

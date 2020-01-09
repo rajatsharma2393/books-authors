@@ -20,21 +20,21 @@ export function loadAuthors() {
   let authors = [
     {
       id: 1,
-      name: "First Author",
+      name: "Dan",
       bookIds: [],
       rating: 3.5,
       age: 25
     },
     {
       id: 2,
-      name: "Second Author",
+      name: "Sam",
       bookIds: [],
       rating: 2.5,
       age: 30
     },
     {
       id: 3,
-      name: "Third Author",
+      name: "Peter",
       bookIds: [],
       rating: 4.5,
       age: 20

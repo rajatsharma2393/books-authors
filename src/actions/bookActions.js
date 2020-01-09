@@ -22,21 +22,21 @@ function getBooksFromApi() {
   let books = [
     {
       id: 1,
-      name: "First Book",
+      name: "React1JS",
       genre: "1",
       authorId: 2,
       rating: 3.5
     },
     {
       id: 2,
-      name: "Second Book",
+      name: "React-Router",
       genre: "2",
       authorId: 1,
       rating: 2.5
     },
     {
       id: 3,
-      name: "Third Book",
+      name: "React-Redux",
       genre: "3",
       authorId: 3,
       rating: 4.5

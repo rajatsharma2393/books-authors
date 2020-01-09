@@ -32,7 +32,7 @@ class Authors extends React.Component {
               <th>Name</th>
               <th>Age</th>
               <th>Rating</th>
-              <th />
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
