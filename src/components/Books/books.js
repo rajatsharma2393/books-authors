@@ -4,6 +4,14 @@ import { loadBooks, deleteBook } from "../../actions/bookActions";
 import { loadAuthors } from "../../actions/authorActions";
 import PropTypes from "prop-types";
 import { Link, Redirect } from "react-router-dom";
+import StarRatings from "react-star-ratings";
+
+const ratingsStyle = {
+  width: "30%",
+  height: "20%",
+  verticalAlign: "top",
+  backgroundColor: "rgb(163, 223, 245)"
+};
 
 class Books extends React.Component {
   componentDidMount() {
@@ -16,13 +24,50 @@ class Books extends React.Component {
   }
 
   render() {
-    let books = this.props.books.map(book => (
-      <span key={book.id}>
-        <Link to={`/book/${book.id}`}>{book.name}</Link>
-        <button onClick={() => this.props.deleteBook(book)}>Delete</button>
-        <br />
-      </span>
-    ));
+    let books = (
+      <>
+        <table className="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Genre</th>
+              <th>Rating</th>
+              <th />
+            </tr>
+          </thead>
+          <tbody>
+            {this.props.books.map(book => {
+              return (
+                <tr key={book.id}>
+                  <td>{book.id}</td>
+                  <td>
+                    <Link to={"/book/" + book.id}>{book.name}</Link>
+                  </td>
+                  <td>{book.genre}</td>
+                  <td style={ratingsStyle}>
+                    <StarRatings
+                      rating={book.rating}
+                      starRatedColor="darkblue"
+                      numberOfStars={5}
+                      name="rating"
+                    />
+                  </td>
+                  <td>
+                    <button
+                      className="btn btn-outline-danger"
+                      onClick={() => console.log(book)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </>
+    );
     return (
       <>
         {this.props.apiCallInProgress ? (
@@ -30,7 +75,7 @@ class Books extends React.Component {
         ) : (
           <>
             <h1>Books</h1>
-            <Link to="/book/0" className="btn">
+            <Link to="/book/0" className="btn btn-primary">
               Add book
             </Link>
             <br />

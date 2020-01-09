@@ -5,9 +5,6 @@ import "./header.css";
 export default () => {
   return (
     <header>
-      <div className="header-image">
-        <img src="./logo192.png" alt=" cannot be loaded" />
-      </div>
       <div className="header-navs">
         <NavLink to="/" activeClassName="activeRoute" exact>
           Home

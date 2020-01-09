@@ -8,6 +8,7 @@ import reducer from "./reducers";
 import { BrowserRouter as Router } from "react-router-dom";
 import reduxImmutableStateInvariant from "redux-immutable-state-invariant";
 import thunk from "redux-thunk";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // add support for Redux dev tools
 let store = createStore(

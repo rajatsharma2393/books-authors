@@ -22,18 +22,21 @@ function getBooksFromApi() {
     {
       id: 1,
       name: "First Book",
+      genre: "1",
       authorId: 2,
       rating: 3.5
     },
     {
       id: 2,
       name: "Second Book",
+      genre: "2",
       authorId: 1,
       rating: 2.5
     },
     {
       id: 3,
       name: "Third Book",
+      genre: "3",
       authorId: 3,
       rating: 4.5
     }

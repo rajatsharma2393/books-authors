@@ -1,74 +1,68 @@
+.top-books {
+  background-color: rgb(224, 96, 96);
+  color: rgb(58, 26, 31);
+}
+
+.top-authors {
+  background-color: rgb(29, 175, 61);
+  color: rgb(58, 26, 31);
+}
 .top-books,
 .top-authors {
-  width: 100vw;
-  height: 40vh;
-  background-color: rgb(207, 154, 154);
-  color: white;
+  width: 100%;
+  height: 40%;
+  border-radius: 1%;
+  margin-top: 2vh;
 }
 
 .books,
 .authors {
   display: flex;
-  grid-template-columns: 1fr 1fr;
-  height: 70%;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 79%;
+  margin-top: 1%;
+}
+.books > div {
+  background-color: rgb(211, 74, 74);
+}
+
+.books > div:hover,
+.authors > div:hover {
+  cursor: pointer;
+}
+
+.books a {
+  color: rgb(61, 3, 3);
+}
+
+.books a:hover,
+.authors a:hover {
+  text-decoration: none;
+  color: rgb(61, 3, 3);
+}
+
+.authors > div {
+  background-color: rgb(27, 146, 53);
+}
+.authors a {
+  color: rgb(12, 20, 16);
 }
 
 .books > div,
 .authors > div {
-  margin: 1vh 1vw 1vw 1vh;
+  margin: 0vh 3vw 1vw 1vh;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: rgb(207, 137, 137);
+  transition: all 0.6s ease;
 }
 
 .books > div > div,
 .authors > div > div {
-  margin-left: 1vw;
-  margin-right: 1vw;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: auto;
-}
-
-.top-books .label,
-.top-authors .label {
-  height: 20%;
-  font-size: 1.7rem;
-}
-
-.top-books > div,
-.top-authors > div {
-  margin-top: 2vh;
-  margin-bottom: 2vh;
-}
-
-.star-ratings {
-  width: 50%;
-  height: 20%;
-}
-
-.star-ratings .star-container {
-  margin: 0%;
-  padding: 0% !important;
-  width: 20%;
-  height: 70%;
-}
-.star-ratings .star-container svg {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-.top-books img,
-.top-authors img {
-  width: 15vh;
-  display: block;
-  margin: auto;
-}
-
-a {
-  text-decoration: none;
 }
 
 .books > div,
@@ -77,19 +71,43 @@ a {
 }
 .books > div:after,
 .authors > div:after {
-  content: "";
+  /* content: "";
   position: absolute;
   top: 0;
   left: 0;
   background-color: black;
   opacity: 0.2;
   width: 100%;
-  height: 100%;
+  height: 90%;
   transform: scaleX(0);
-  transition: all 0.6s ease;
+  transition: all 0.6s ease; */
 }
 
-.books > div:hover:after,
-.authors > div:hover:after {
-  transform: scaleX(1);
+.books > div:hover {
+  /* transform: scaleX(1); */
+  background-color: rgb(100, 14, 14);
+}
+
+.authors > div:hover {
+  background-color: rgb(12, 65, 21);
+}
+
+.top-books .label,
+.top-authors .label {
+  height: 20%;
+  font-size: 1.7rem;
+}
+
+.books > div > div img,
+.authors > div > div img {
+  max-width: 30%;
+  max-height: 30%;
+  display: block;
+  margin: auto;
+  margin-top: 10%;
+}
+div.star-ratings {
+  width: 30%;
+  height: 20%;
+  margin-top: 1vh !important;
 }

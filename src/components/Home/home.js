@@ -35,7 +35,7 @@ class Home extends React.Component {
         </div>
         <StarRatings
           rating={book.rating}
-          starRatedColor="blue"
+          starRatedColor="rgb(83, 3, 3)"
           numberOfStars={5}
           name="rating"
         />
@@ -52,7 +52,7 @@ class Home extends React.Component {
         </div>
         <StarRatings
           rating={author.rating}
-          starRatedColor="blue"
+          starRatedColor="rgb(1, 44, 1)"
           numberOfStars={5}
           name="rating"
         />
